@@ -1,94 +1,94 @@
     # 1
-#def f(n, b, dell):
-#     if n % dell == 0 and b % dell == 0:
-#         if dell > min(n, b):
-#             return dell(n, b, dell+1)
-#         else:
-#             return dell
-#     else:
-#         if dell > min(n, b):
-#             return dell(n, b, dell+1)
+def f(n, b, dell):
+     if n % dell == 0 and b % dell == 0:
+         if dell > min(n, b):
+             return dell(n, b, dell+1)
+         else:
+             return dell
+     else:
+         if dell > min(n, b):
+             return dell(n, b, dell+1)
 
-# def f(n, b):
-#     if b == 0:
-#         return n
-#     else:
-#         return f(b, b%n)
-#
-# n = int(input("Введите первое число: "))
-# b = int(input("Введите второе число: "))
-# dell = 2
-# f(b, b%n)
-# print("Наибольший общий делитель двух целых чисел:", f(b, b%n))
+def f(n, b):
+     if b == 0:
+         return n
+     else:
+         return f(b, b%n)
+
+n = int(input("Введите первое число: "))
+b = int(input("Введите второе число: "))
+dell = 2
+f(b, b%n)
+print("Наибольший общий делитель двух целых чисел:", f(b, b%n))
 
     # 2
-# import random
-# skot = []
-# score = 0
-# for i in range(4):
-#     skot.append(str(random.randint(0, 9)))
-# print(skot)
-#
-# def SkotniyDvor(skot, score):
-#     c = 0
-#     b = 0
-#     count = 0
-#     while True:
-#         c = 0
-#         b = 0
-#         print("Быки - сколько цифр числа угадано; \n"
-#               "Коровы - сколько цифр угадано и стоит на нужном месте.")
-#         n = input("Введите 4х значное число: ")
-#         count += 1
-#         for i in range(4):
-#             if skot[i] == n[i]:
-#                 c+=1
-#             elif (n[i] in skot):
-#                 b += 1
-#         if c == 4:
-#             print("Быков", b)
-#             print("Коров", c)
-#             print("Кол-во ходов", count)
-#             break
-#         print("Быков", b)
-#         print("Коров", c)
-# SkotniyDvor(skot, score)
+import random
+skot = []
+score = 0
+for i in range(4):
+     skot.append(str(random.randint(0, 9)))
+print(skot)
+
+ def SkotniyDvor(skot, score):
+     c = 0
+     b = 0
+     count = 0
+     while True:
+         c = 0
+         b = 0
+         print("Быки - сколько цифр числа угадано; \n"
+               "Коровы - сколько цифр угадано и стоит на нужном месте.")
+         n = input("Введите 4х значное число: ")
+         count += 1
+         for i in range(4):
+             if skot[i] == n[i]:
+                 c+=1
+             elif (n[i] in skot):
+                 b += 1
+         if c == 4:
+             print("Быков", b)
+             print("Коров", c)
+             print("Кол-во ходов", count)
+             break
+         print("Быков", b)
+         print("Коров", c)
+ SkotniyDvor(skot, score)
 
     # 3
 # # N = 8 # N - длина доски (N*N)
 # # Посещение нужно для того, чтобы:
 # # 1. Хранить список посещений фигуры
 # # 2. Хранить клетки для возможного хода коня
-# visited = [[0 for i in range(N)] for y in range(N)]
-# pos = 1
+ visited = [[0 for i in range(N)] for y in range(N)]
+ pos = 1
 # # Клетки из 8ми вариаций посещения коня
-# row = [2, 1, -1, -2, -2, -1, 1, 2, 2]
-# col = [1, 2, 2, 1, -1, -2, -2, -1, 1]
-#
+ row = [2, 1, -1, -2, -2, -1, 1, 2, 2]
+ col = [1, 2, 2, 1, -1, -2, -2, -1, 1]
+
 # # проверка является ли (х, у) правильными координатами доски
-# def isvalid(x,y):
-#     return not (x < 0 or y < 0 or x >= N or y >= N)
-#
+ def isvalid(x,y):
+     return not (x < 0 or y < 0 or x >= N or y >= N)
+
 # # вместо нулей можем передать любую начальную позицию для x и y
-# def horse(visited, x, y, pos):
-#     visited[x][y] = pos
-#     if pos >= N*N:
-#         for i in visited:
-#             print(i)
-#         print()
-#         visited[x][y] = 0
-#         return
+ def horse(visited, x, y, pos):
+     visited[x][y] = pos
+     if pos >= N*N:
+         for i in visited:
+             print(i)
+         print()
+         visited[x][y] = 0
+         return
 #     # проверка всех возможных ходов
-#     for j in range(8):
+     for j in range(8):
 #         # новая позиция коня из текущей клетки
-#         newX = x + row[j]
-#         newY = y + col[j]
-#         if isvalid(newX, newY) and visited[newX][newY] == 0:
-#             horse(visited, newX, newY, pos+1)
-#     visited[x][y] = 0
-#
-# isvalid(0,0)
-# horse(visited, 0, 0, pos)
+         newX = x + row[j]
+         newY = y + col[j]
+         if isvalid(newX, newY) and visited[newX][newY] == 0:
+             horse(visited, newX, newY, pos+1)
+     visited[x][y] = 0
+
+ isvalid(0,0)
+ horse(visited, 0, 0, pos)
 
     # 4
 from random import *
